@@ -4,9 +4,9 @@
 
 <h2 align="center">Project Overview</h2>
 
-This project simulates a fully functional Security Operations Center (SOC) environment designed to engineer detection pipelines, analyze adversarial behavior, and perform digital forensics.
+This project simulates a fully functional Security Operations Center (SOC) environment designed to engineer detection pipelines, analyze adversarial behavior, and perform digital forensics and incident response.
 
-The objective was to build a complete telemetry lifecycle from log generation on mixed OS endpoints to ingestion, normalization, and visualization in a centralized Splunk SIEM validated against real-world attack simulations.
+The objective was to build a complete telemetry lifecycle from log generation on mixed OS endpoints to ingestion, normalization, and visualization in a centralized Splunk SIEM and simultae real time attacks on the endpoints.
 
 <hr>
 
@@ -24,11 +24,11 @@ The objective was to build a complete telemetry lifecycle from log generation on
 
 ### Splunk Enterprise & Universal Forwarder
 **Role: Security Information & Event Management (SIEM)**  
-Serves as the central brain of the SOC. It ingests multi-source telemetry (XML, JSON, Syslog) via the Universal Forwarder. A custom Master SPL query was developed to normalize disparate log formats into a unified Endpoint data model, enabling real time dashboards.
+Serves as the central data loging ground of the SOC. It ingests multi source logs (XML, JSON, Syslog) via the Universal Forwarder. A custom Master SPL query was developed to normalize log formats into a unified Endpoint data model.
 
 ### Suricata
 **Role: Network Intrusion Detection System (NIDS)**  
-Deployed on the Windows and Linux endpoints using to inspect network traffic. Configured with the Emerging Threats open ruleset to detect signature-based network threats and generate `eve.json` alerts for Splunk ingestion.
+Deployed on the Windows and Linux endpoints using to inspect network traffic. Configured with the Emerging Threats open ruleset to detect signature based network threats and generate  alerts for Splunk log ingestion.
 
 ### Sysmon
 **Role: Advanced Endpoint Telemetry**  
@@ -36,7 +36,7 @@ Installed on both Windows and Linux endpoints. It provides deep visibility into 
 
 ### MITRE Caldera
 **Role: Adversary Emulation (Red Teaming)**  
-An automated C2 framework used to simulate realistic attack campaigns. It executes adversary profiles (e.g., Discovery, Hunter) to validate that the SOC pipeline correctly detects and alerts on malicious behavior mapped to the MITRE ATT&CK framework.
+An automated C2 framework used to simulate realistic attacks. It executes adversary profiles (e.g., Discovery, Hunter) to validate that the SOC pipeline correctly detects and alerts on malicious behavior mapped to the MITRE ATT&CK framework.
 
 ### Velociraptor
 **Role: Digital Forensics & Incident Response (DFIR)**  
@@ -44,7 +44,7 @@ A powerful forensic tool used for endpoint hunting and evidence collection. It s
 
 ### Atomic Red Team
 **Role: Atomic Test Simulation**  
-A library of small, scripted tests used for validating specific detections like T1003 Credential Dumping before performing full-scale emulated attack campaigns with Caldera.
+A library of small, scripted tests used for validating specific detections like T1003 Credential Dumping before performing full scale emulated attack campaigns with Caldera.
 
 <hr>
 
